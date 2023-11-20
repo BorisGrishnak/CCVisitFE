@@ -13,7 +13,7 @@ export default function Survey() {
   
     const [rating, setRating] = useState(0);
     const [kenyamanan, setKenyamanan] = useState(0);
-    const [kelengkapan, setKelengkapan] = useState(0);
+    const [fungsional, setFungsional] = useState(0);
     const [saran, setSaran] = useState('-');
     const [hover, setHover] = useState(null);
 
@@ -26,8 +26,8 @@ export default function Survey() {
         case 'kenyamanan':
           setKenyamanan(tag);
           break;
-        case 'kelengkapan':
-          setKelengkapan(tag);
+        case 'fungsional':
+          setFungsional(tag);
           break;
       }
       // console.log({type, tag});
@@ -52,7 +52,7 @@ export default function Survey() {
           "idReview": 0,
           "idPeminjaman": location.state.idTim,
           "kenyamanan": kenyamanan,
-          "kelengkapan": kelengkapan,
+          "fungsional": fungsional,
           "rating": rating,
           "saran": saran
       });
@@ -117,25 +117,25 @@ export default function Survey() {
                         <td></td>
                     </tr>
                     <tr>
-                        <td colSpan={3}>Kelengkapan</td>
-                        <td><input style={{display: "none"}} type="radio" value={1} name="kelengkapan" /> 
-                            <Button id={`${kelengkapan === 1 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('kelengkapan', 1)}>
+                        <td colSpan={3}>Fungsional</td>
+                        <td><input style={{display: "none"}} type="radio" value={1} name="fungsional" /> 
+                            <Button id={`${fungsional === 1 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('fungsional', 1)}>
                               1
                             </Button></td>
-                        <td><input style={{display: "none"}} type="radio" value={2} name="kelengkapan" /> 
-                            <Button id={`${kelengkapan === 2 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('kelengkapan', 2)}>
+                        <td><input style={{display: "none"}} type="radio" value={2} name="fungsional" /> 
+                            <Button id={`${fungsional === 2 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('fungsional', 2)}>
                               2
                             </Button></td>
-                        <td><input style={{display: "none"}} type="radio" value={3} name="kelengkapan" /> 
-                            <Button id={`${kelengkapan === 3 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('kelengkapan', 3)}>
+                        <td><input style={{display: "none"}} type="radio" value={3} name="fungsional" /> 
+                            <Button id={`${fungsional === 3 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('fungsional', 3)}>
                               3
                             </Button></td>
-                        <td colSpan={2}><input style={{display: "none"}} type="radio" value={4} name="kelengkapan" /> 
-                            <Button id={`${kelengkapan === 4 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('kelengkapan', 4)}>
+                        <td colSpan={2}><input style={{display: "none"}} type="radio" value={4} name="fungsional" /> 
+                            <Button id={`${fungsional === 4 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('fungsional', 4)}>
                               4
                             </Button></td>
-                        <td><input style={{display: "none"}} type="radio" value={5} name="kelengkapan" /> 
-                            <Button id={`${kelengkapan === 5 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('kelengkapan', 5)}>
+                        <td><input style={{display: "none"}} type="radio" value={5} name="fungsional" /> 
+                            <Button id={`${fungsional === 5 ? 'bg-yellow' : 'btnRate'}`} type="button" onClick={() => handleClick('fungsional', 5)}>
                               5
                             </Button></td>
                         <td></td>

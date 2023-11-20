@@ -3,10 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToggleButton, Form, Button } from 'react-bootstrap';
 import axios from "axios";
 import Header from './Header';
+import Select from 'react-select';
 import './Style.css';
 
 export default function TimSurvey() {
 
+    const [isClearable, setIsClearable] = useState(true);
+    const [isSearchable, setIsSearchable] = useState(true);
     const navigate = useNavigate();
     const [tim, setTim] = useState();
     const [data, setData] = useState([]);
@@ -53,29 +56,39 @@ export default function TimSurvey() {
         
       }
 
-    const handleChange = event => {
-        setTim(event.target.value)
-        console.log(event.target.value);
+    const handleChange = e => {
+        setTim(e)
+        console.log(e);
     };
 
     const ww = data.map((d) => d.idPeminjaman)
     // console.log(ww);
+    const options = data.map((d) => (
+      { value: '', label: '-- Silahkan Pilih Tim Anda --' },
+      { value: d.idPeminjaman, label: ['Peminjaman No: ', d.ticket, ' PIC: ', d.namaPIC] }
+    ))
+    console.log(tim);
 
   return (
     <>
     <div className='survey'>
         <Header/>
 
-        <h1 className='text-center mt-3' style={{fontWeight: 700}}>Mohon pilih tim yang akan disurvey:</h1>
+        <h1 className='text-center mt-3' style={{fontWeight: 700}}>Mohon masukkan nomor tiket atau nama PIC:</h1>
 
         <div className="text-center">
             <Form id='form' action="" method="post" onSubmit={handleSubmit}>
-                <Form.Select id='formgroup' onChange={handleChange} style={{width: 400, marginInline: 'auto', marginTop: 50, marginBottom: 50}} name="tim" aria-label="Default select example" required>
-                    <option value="">-- Silahkan Pilih Tim Anda --</option>
-                    {data.map((dt, index) => (
-                        <option key={index} value={dt.idPeminjaman}>Tiket No.{dt.ticket}, PIC: {dt.namaPIC}</option>
-                    ))}
-                </Form.Select>
+            <Select
+              className="basic-single mt-5 mb-5 w-50 mx-auto text-start"
+              classNamePrefix="select"
+              onChange={(e) => setTim(e.value)}
+              defaultValue={options[0]}
+              options={options}
+              isClearable={isClearable}
+              isSearchable={isSearchable}
+              name="color"
+              required
+            />
 
                 <Button className="BtnBrn" variant='dark' style={{width: "20%", backgroundColor: '#FDCD04', borderRadius: 30, marginInline: 'auto'}} type="submit">
                     <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>PILIH</h3>

@@ -48,6 +48,11 @@ export default function Beranda() {
                         <h3 style={{color: 'black', fontWeight: 400, fontFamily: 'inherit'}}>JADWAL</h3>
                     </Button>
                 </Link>
+                <Link to="/timsurvey">
+                    <Button className="ms-5 BtnBrn" variant='dark' style={{width: "20%", backgroundColor: '#FDCD04'}} type="button">
+                        <h3 style={{color: 'black', fontWeight: 400, fontFamily: 'inherit'}}>REVIEW</h3>
+                    </Button>
+                </Link>
             </div>
           </div>
         </div>

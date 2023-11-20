@@ -188,7 +188,7 @@ const handleTime = event => {
   setStartTime(event.target.value)
 
   const isFound = peminjaman.some(pm => {
-    if (pm.idRuangan == ruang && moment(event.target.value).format('yyyy-MM-D') == moment(pm.startTime).format('yyyy-MM-D') && pm.status !== "Done" ) {
+    if (pm.idRuangan == ruang && moment(event.target.value).format('yyyy-MM-D') == moment(pm.startTime).format('yyyy-MM-D') && pm.status !== "Approved" ) {
       return true;
     } else {
       return false;
@@ -262,7 +262,7 @@ const handleTime = event => {
                     <Form.Label>Keperluan</Form.Label>
                     <Form.Select id='formgroup' onChange={handleKeperluan} name="ruang" aria-label="Default select example" required>
                       <option value={'Meeting'}>Meeting</option>
-                      <option value={'Weekly Check In'}>Weekly Check In</option>
+                      <option value={'Visit'}>Visit</option>
                     </Form.Select>
                     <Form.Label className='mt-2'>Detail Keperluan</Form.Label>
                     <div>
